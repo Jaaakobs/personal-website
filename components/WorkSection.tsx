@@ -168,13 +168,25 @@ const workHistory: WorkItem[] = [
           >
             Anton Kononov
           </a>
-          , I completely built the product department from scratch.
+          , I built the product department from scratch.
         </p>
         <p className="mt-3">
-          Grew the company from a handful of customers to over 20,000 returning patients worldwide. Scaled the team to 100+ people and helped reach €30M+ in annual recurring revenue.
+          We raised the biggest Series A in healthcare in Europe at the time. Grew from a handful of customers to over 20,000 returning patients, scaled to 100+ people, and reached €30M+ ARR.
+        </p>
+        <p className="mt-3">
+          Started as first Product Manager → Senior Product Analyst → Product Lead, managing a team of PMs, designers, and engineers.
         </p>
         <p className="mt-3 text-[#4a4a4a]">
-          Started as first Product Manager → Senior Product Analyst → Product Lead, managing a team of PMs, designers, and engineers.
+          Today FORMEL Skin has provided over 2 million treatments and was{" "}
+          <a
+            href="https://tech.eu/2025/12/04/formel-skin-joins-manual-to-expand-from-skin-health-to-whole-body-care/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline"
+          >
+            acquired by MANUAL
+          </a>
+          {" "}in December 2025.
         </p>
       </>
     ),
@@ -239,7 +251,7 @@ export default function WorkSection() {
             </div>
 
             {/* Info */}
-            <div className="min-w-[120px]">
+            <div className="flex-1 sm:flex-none sm:min-w-[120px]">
               <span className="font-medium text-[15px] whitespace-nowrap">
                 {item.company}
               </span>
@@ -250,7 +262,7 @@ export default function WorkSection() {
             <div className="flex-1 border-b border-dotted border-[#1a1a1a]/20 mx-2 hidden sm:block" />
 
             {/* Period */}
-            <div className="text-sm text-[#4a4a4a] whitespace-nowrap">
+            <div className="text-sm text-[#4a4a4a] whitespace-nowrap text-right">
               {item.period}
             </div>
           </button>

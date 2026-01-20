@@ -10,6 +10,7 @@ interface EducationItem {
   period: string;
   logo: string;
   location: string;
+  grade: string;
   description: React.ReactNode;
 }
 
@@ -20,10 +21,10 @@ const education: EducationItem[] = [
     period: "2019 - 2021",
     logo: "/logos/escp_business_school_logo.jpeg",
     location: "Paris, France",
+    grade: "Graduated with distinction (18.54/20)",
     description: (
       <>
-        <p className="font-medium">Graduated with distinction (18.54/20)</p>
-        <p className="mt-3">
+        <p>
           Ranked #4 globally in QS World University Rankings for Masters in Business Analytics (2021). Focused heavily on machine learning, data mining, and applying analytics to real business problems.
         </p>
         <p className="mt-3">
@@ -42,10 +43,10 @@ const education: EducationItem[] = [
     period: "2015 - 2019",
     logo: "/logos/rotterdam_business_school_logo.jpeg",
     location: "Rotterdam, Netherlands",
+    grade: "Graduated cum laude (8.01/10)",
     description: (
       <>
-        <p className="font-medium">Graduated cum laude (8.01/10)</p>
-        <p className="mt-3">
+        <p>
           Part of the Honours Programme — a selective track for high-performing students with additional projects and challenges.
         </p>
         <p className="mt-3">
@@ -89,7 +90,7 @@ export default function EducationSection() {
             </div>
 
             {/* Info */}
-            <div className="min-w-[120px]">
+            <div className="flex-1 sm:flex-none sm:min-w-[120px]">
               <span className="font-medium text-[15px] whitespace-nowrap">
                 {item.school}
               </span>
@@ -100,7 +101,7 @@ export default function EducationSection() {
             <div className="flex-1 border-b border-dotted border-[#1a1a1a]/20 mx-2 hidden sm:block" />
 
             {/* Period */}
-            <div className="text-sm text-[#4a4a4a] whitespace-nowrap">
+            <div className="text-sm text-[#4a4a4a] whitespace-nowrap text-right">
               {item.period}
             </div>
           </button>
@@ -113,10 +114,16 @@ export default function EducationSection() {
         onClose={() => setSelectedEducation(null)}
         title={selectedEducation?.school || ""}
         subtitle={selectedEducation?.degree}
-        period={`${selectedEducation?.period} · ${selectedEducation?.location}`}
+        period={selectedEducation?.period}
         logo={selectedEducation?.logo}
       >
-        <div>{selectedEducation?.description}</div>
+        <div className="space-y-4">
+          <p className="text-[#4a4a4a] text-sm">{selectedEducation?.location}</p>
+          <div>{selectedEducation?.description}</div>
+          <p className="text-[#4a4a4a] mt-4 pt-4 border-t border-[#1a1a1a]/10">
+            {selectedEducation?.grade}
+          </p>
+        </div>
       </Dialog>
     </section>
   );
