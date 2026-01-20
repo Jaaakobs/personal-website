@@ -1,4 +1,10 @@
+"use client";
+
+import { useState } from "react";
+
 export default function AboutSection() {
+  const [showCertificate, setShowCertificate] = useState(false);
+
   return (
     <section className="max-w-md">
       <h2 className="font-heading text-lg text-[#4a4a4a] mb-4 tracking-wide">About</h2>
@@ -49,7 +55,39 @@ export default function AboutSection() {
         </p>
         
         <p>
-          i like thoughtful design, long runs, building from scratch, good conversations, and finding patterns in chaos.
+          i like thoughtful design, building from scratch, good conversations, finding patterns in chaos, and daily breathwork — i&apos;m a{" "}
+          <span 
+            className="relative inline-block"
+            onMouseEnter={() => setShowCertificate(true)}
+            onMouseLeave={() => setShowCertificate(false)}
+          >
+            <a 
+              href="/breathwork/Jakob Engelhardt - Breathwork Certification.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cursor-pointer"
+            >
+              <span className="text-blue-600 border-b border-dashed border-blue-600 hover:border-solid">certified</span>
+            </a>
+            {" "}breathwork facilitator
+            
+            {/* Hover card with certificate preview */}
+            {showCertificate && (
+              <span className="absolute left-0 bottom-full mb-2 z-50 pointer-events-none">
+                <span className="block bg-white rounded-lg shadow-xl p-2 border border-[#1a1a1a]/10">
+                  <span className="block w-48 h-64 bg-[#E7E8E6] rounded overflow-hidden relative">
+                    <iframe
+                      src="/breathwork/Jakob Engelhardt - Breathwork Certification.pdf#toolbar=0&navpanes=0"
+                      className="w-full h-full border-0 scale-[0.5] origin-top-left"
+                      style={{ width: '200%', height: '200%' }}
+                      title="Breathwork Certificate"
+                    />
+                  </span>
+                </span>
+              </span>
+            )}
+          </span>
+          .
         </p>
         
         <p className="text-[#4a4a4a]">

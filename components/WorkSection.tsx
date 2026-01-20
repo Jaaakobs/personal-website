@@ -25,10 +25,18 @@ const workHistory: WorkItem[] = [
     description: (
       <>
         <p>
-          Leading product development at Buena, a proptech company on a mission to make owning real estate simple in Germany.
+          <a
+            href="https://www.linkedin.com/in/bisevac/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline"
+          >
+            Din
+          </a>{" "}
+          convinced me to join Buena and build together with the team. It&apos;s rare to find a company where ambition, speed, and genuine care for the product come together like this.
         </p>
         <p className="mt-3">
-          We just announced our{" "}
+          We&apos;re on a mission to make owning real estate simple in Germany — and we just announced our{" "}
           <a
             href="https://www.buena.com/blog/press-release"
             target="_blank"
@@ -37,14 +45,17 @@ const workHistory: WorkItem[] = [
           >
             Series A of $58M from Google Ventures
           </a>
-          . Building with one of the smartest teams I&apos;ve ever worked with — shipping fast, thinking big.
+          .
+        </p>
+        <p className="mt-3 text-[#4a4a4a]">
+          Building with one of the smartest teams I&apos;ve ever worked with — shipping fast, thinking big, and actually having fun doing it.
         </p>
       </>
     ),
   },
   {
     company: "neonova",
-    role: "Co-Founder",
+    role: "Co-Founder (discontinued)",
     period: "2022 - 2024",
     logo: "/logos/neonova_ai_logo.jpeg",
     location: "Berlin, Germany",
@@ -91,7 +102,19 @@ const workHistory: WorkItem[] = [
           >
             FORMEL Skin
           </a>
-          . Helped teams ship ML-powered products and build their data infrastructure from the ground up.
+          .
+        </p>
+        <p className="mt-3">
+          We also built our own SaaS startup —{" "}
+          <a
+            href="https://www.producthunt.com/products/ivie"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline"
+          >
+            ivie
+          </a>
+          . Found early traction but decided to discontinue to pursue other opportunities.
         </p>
       </>
     ),
@@ -118,7 +141,10 @@ const workHistory: WorkItem[] = [
           to build a functional medicine and prevention clinic.
         </p>
         <p className="mt-3">
-          Completely built the MVP from scratch and helped set up the first practice in Berlin. Shaped the early product vision and patient experience before moving on to start neonova.
+          Completely built the MVP from scratch and helped set up the first practice. Shaped the early product vision and patient experience before moving on to start neonova.
+        </p>
+        <p className="mt-3 text-[#4a4a4a]">
+          Today Circle Health has two practices — one in Berlin and one in Munich.
         </p>
       </>
     ),

@@ -9,6 +9,7 @@ interface EducationItem {
   degree: string;
   period: string;
   logo: string;
+  location: string;
   description: React.ReactNode;
 }
 
@@ -18,6 +19,7 @@ const education: EducationItem[] = [
     degree: "MSc Business Analytics",
     period: "2019 - 2021",
     logo: "/logos/escp_business_school_logo.jpeg",
+    location: "Paris, France",
     description: (
       <>
         <p className="font-medium">Graduated with distinction (18.54/20)</p>
@@ -29,7 +31,7 @@ const education: EducationItem[] = [
           Development of a Framework for the Analysis of Brand Authenticity in Social Media — a Text Mining Approach.
         </p>
         <p className="mt-3 text-[#4a4a4a]">
-          Board Member of the Big Data Club. Spent time in Paris and Berlin campuses.
+          Board Member of the Big Data Club. Spent time across Paris and Berlin campuses.
         </p>
       </>
     ),
@@ -39,6 +41,7 @@ const education: EducationItem[] = [
     degree: "BBA International Business",
     period: "2015 - 2019",
     logo: "/logos/rotterdam_business_school_logo.jpeg",
+    location: "Rotterdam, Netherlands",
     description: (
       <>
         <p className="font-medium">Graduated cum laude (8.01/10)</p>
@@ -110,7 +113,7 @@ export default function EducationSection() {
         onClose={() => setSelectedEducation(null)}
         title={selectedEducation?.school || ""}
         subtitle={selectedEducation?.degree}
-        period={selectedEducation?.period}
+        period={`${selectedEducation?.period} · ${selectedEducation?.location}`}
         logo={selectedEducation?.logo}
       >
         <div>{selectedEducation?.description}</div>

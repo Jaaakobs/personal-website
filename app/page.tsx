@@ -3,7 +3,6 @@ import AboutSection from "@/components/AboutSection";
 import WorkSection from "@/components/WorkSection";
 import EducationSection from "@/components/EducationSection";
 import ContactSection from "@/components/ContactSection";
-import Quote from "@/components/Quote";
 
 export default function Home() {
   return (
@@ -38,10 +37,8 @@ export default function Home() {
             <ContactSection />
           </div>
           
-          {/* Quote */}
-          <div className="flex items-end">
-            <Quote />
-          </div>
+          {/* Empty third column */}
+          <div />
         </div>
         
         {/* Mobile Layout */}
@@ -62,11 +59,6 @@ export default function Home() {
           
           {/* Contact */}
           <ContactSection />
-          
-          {/* Quote */}
-          <div className="pt-8 border-t border-[#1a1a1a]/10">
-            <Quote />
-          </div>
         </div>
       </div>
     </main>
