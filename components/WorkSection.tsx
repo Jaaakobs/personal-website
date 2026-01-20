@@ -55,7 +55,7 @@ const workHistory: WorkItem[] = [
   },
   {
     company: "neonova",
-    role: "Co-Founder (discontinued)",
+    role: "Co-Founder",
     period: "2022 - 2024",
     logo: "/logos/neonova_ai_logo.jpeg",
     location: "Berlin, Germany",
@@ -232,12 +232,12 @@ export default function WorkSection() {
         Work
       </h2>
 
-      <div className="space-y-2">
+      <div className="space-y-2 overflow-hidden">
         {workHistory.map((item, index) => (
           <button
             key={index}
             onClick={() => setSelectedWork(item)}
-            className="flex items-center gap-4 group w-full text-left p-2 -mx-2 rounded-lg hover:bg-[#1a1a1a]/5 transition-colors cursor-pointer"
+            className="flex items-center gap-4 group w-full text-left p-2 rounded-lg hover:bg-[#1a1a1a]/5 transition-colors cursor-pointer focus:outline-none"
           >
             {/* Logo */}
             <div className="w-9 h-9 rounded-lg overflow-hidden bg-white shadow-sm flex items-center justify-center flex-shrink-0">

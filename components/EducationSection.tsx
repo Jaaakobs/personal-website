@@ -71,12 +71,12 @@ export default function EducationSection() {
         Education
       </h2>
 
-      <div className="space-y-2">
+      <div className="space-y-2 overflow-hidden">
         {education.map((item, index) => (
           <button
             key={index}
             onClick={() => setSelectedEducation(item)}
-            className="flex items-center gap-4 group w-full text-left p-2 -mx-2 rounded-lg hover:bg-[#1a1a1a]/5 transition-colors cursor-pointer"
+            className="flex items-center gap-4 group w-full text-left p-2 rounded-lg hover:bg-[#1a1a1a]/5 transition-colors cursor-pointer focus:outline-none"
           >
             {/* Logo */}
             <div className="w-9 h-9 rounded-lg overflow-hidden bg-white shadow-sm flex items-center justify-center flex-shrink-0">

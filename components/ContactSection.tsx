@@ -1,6 +1,7 @@
 interface ContactLink {
   label: string;
   href: string;
+  download?: boolean;
 }
 
 const links: ContactLink[] = [
@@ -9,12 +10,21 @@ const links: ContactLink[] = [
     href: "https://www.linkedin.com/in/jakob-engelhardt/",
   },
   {
+    label: "x",
+    href: "https://x.com/jaaakobs",
+  },
+  {
     label: "email",
     href: "mailto:engelhardt.jak@gmail.com",
   },
   {
     label: "chat",
     href: "https://api.whatsapp.com/send/?phone=4915750421836",
+  },
+  {
+    label: "cv",
+    href: "/cv",
+    download: false,
   },
 ];
 
