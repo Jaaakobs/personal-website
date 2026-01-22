@@ -1,10 +1,11 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 
 export default function CVPage() {
   const cvRef = useRef<HTMLDivElement>(null);
+  const [copied, setCopied] = useState(false);
 
   const downloadPDF = async () => {
     if (!cvRef.current) return;
@@ -23,6 +24,92 @@ export default function CVPage() {
     html2pdf().set(opt).from(cvRef.current).save();
   };
 
+  const copyPageContent = async () => {
+    const content = `# Jakob Engelhardt
+Product Management & AI Strategy
+
+## Contact
+- Email: engelhardt.jak@gmail.com
+- LinkedIn: linkedin.com/in/jakob-engelhardt
+- Twitter: x.com/jaaakobs
+- Location: Berlin, Germany
+
+## Profile
+Product leader with experience building and scaling products from 0 to 1. Proven track record in co-founding startups and leading product teams at high-growth companies. Passionate about the intersection of AI and health, with expertise in data-driven decision-making and full product lifecycles.
+
+## Experience
+
+### Head of Product at Buena (2024 - present)
+Berlin, Germany
+- Leading product development at proptech startup redefining home ownership
+- Contributed to closing $58M Series A from Google Ventures
+- Building and scaling product team and processes
+
+### Co-Founder at neonova (2022 - 2024)
+Berlin, Germany
+- Co-founded AI and data solutions consultancy
+- Built data infrastructure and ML products for clients (Buena, FORMEL Skin, Purish)
+- Launched ivie.so, a B2B SaaS for automated user interviews
+- Discontinued to join Buena full-time
+
+### Founding Team at Circle Health (2023)
+Berlin, Germany
+- Built MVP for functional medicine clinic from scratch
+- Set up first practice and patient experience
+- Company now operates two practices in Berlin and Munich
+
+### Product Lead at FORMEL Skin (2020 - 2022)
+Berlin, Germany
+Career progression: Product Manager → Senior Product Analyst → Product Lead
+- Joined as first employee pre-seed, built product department from scratch
+- Contributed to biggest Series A in European healthcare at the time
+- Scaled from handful of customers to 20,000+ returning patients, €30M+ ARR
+- Led 5-person product team (PMs, designers, engineers)
+- Company acquired by MANUAL in December 2025 (2M+ treatments)
+
+### Co-Founder at Medi-Match (2018 - 2023)
+Karlsruhe, Germany
+- Built algorithm to predict medical school admission chances
+- Helped 10,000+ prospective students with admission planning
+- Acquired by nc-rechner in 2023
+
+## Education
+
+### MSc Business Analytics - ESCP Business School (2019 - 2021)
+Paris, France
+- Graduated with distinction (18.54/20)
+- Ranked #4 in QS World Rankings for Masters in Business Analytics
+- Thesis: Development of a Framework for the Analysis of Brand Authenticity in Social Media — a Text Mining Approach
+
+### BBA International Business - Rotterdam Business School (2015 - 2019)
+Rotterdam, Netherlands
+- Graduated cum laude (8.01/10)
+- Honours Programme
+- Thesis: Development of a Framework for the Ethical use of Artificial Intelligence in the Business Environment
+
+## Skills
+- Product Strategy & Roadmapping
+- 0-to-1 Product Development
+- Data Analytics & BI (BigQuery, DBT)
+- Machine Learning & AI Applications
+- User Research & Customer Discovery
+- Team Leadership & Hiring
+- Agile / Scrum Methodologies
+- Figma, SQL, Python
+
+## Additional
+- Certified Breathwork Facilitator
+- Interests: AI x Health, thoughtful design, building from scratch, finding patterns in chaos`;
+
+    try {
+      await navigator.clipboard.writeText(content);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy:", err);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-100 py-8 print:py-0 print:bg-white">
       {/* Action buttons - hidden when printing */}
@@ -32,6 +119,27 @@ export default function CVPage() {
           className="bg-[#1a1a1a] text-white px-4 py-2 rounded-lg hover:bg-[#333] transition-colors text-sm font-medium"
         >
           Download PDF
+        </button>
+        <button
+          onClick={copyPageContent}
+          className="bg-[#1a1a1a] text-white px-4 py-2 rounded-lg hover:bg-[#333] transition-colors text-sm font-medium flex items-center gap-2"
+        >
+          {copied ? (
+            <>
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+              </svg>
+              Copied!
+            </>
+          ) : (
+            <>
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z" />
+                <path d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2 3 3 0 01-3 3H9a3 3 0 01-3-3z" />
+              </svg>
+              Copy page
+            </>
+          )}
         </button>
         <a
           href="/"

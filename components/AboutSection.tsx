@@ -9,11 +9,11 @@ export default function AboutSection() {
     <section className="max-w-md">
       <h2 className="font-heading text-lg text-[#4a4a4a] mb-4 tracking-wide">About</h2>
       
-      <p className="text-[15px] mb-6">hi, i&apos;m jakob</p>
+      <p className="text-[15px] mb-6">Hi, I&apos;m Jakob</p>
       
       <div className="space-y-4 text-[15px] leading-relaxed">
         <p>
-          i build products. currently leading product at{" "}
+          I build products. Currently leading product at{" "}
           <a 
             href="https://buena.com" 
             target="_blank" 
@@ -37,7 +37,7 @@ export default function AboutSection() {
         </p>
         
         <p>
-          before this, i was one of the first employees at{" "}
+          Before this, I was one of the first employees at{" "}
           <a 
             href="https://www.formelskin.de" 
             target="_blank"
@@ -47,15 +47,15 @@ export default function AboutSection() {
             FORMEL Skin
             <span className="inline-block ml-1 text-xs">↗</span>
           </a>
-          {" "}— helped build from pre-seed to €30M+ ARR. i&apos;ve also co-founded two companies and been part of founding teams at others.
+          {" "}— helped build from pre-seed to €30M+ ARR. I&apos;ve also co-founded two companies and been part of founding teams at others.
         </p>
         
         <p>
-          deeply curious about the intersection of AI and health. building tools that genuinely improve people&apos;s lives is what drives me.
+          Deeply curious about the intersection of AI and health. Building tools that genuinely improve people&apos;s lives is what drives me.
         </p>
         
         <p>
-          i like thoughtful design, building from scratch, good conversations, finding patterns in chaos, and daily breathwork — i&apos;m a{" "}
+          I like thoughtful design, building from scratch, good conversations, finding patterns in chaos, and daily breathwork — I&apos;m a{" "}
           <span 
             className="relative inline-block"
             onMouseEnter={() => setShowCertificate(true)}
@@ -90,7 +90,7 @@ export default function AboutSection() {
         </p>
         
         <p className="text-[#4a4a4a]">
-          i live in berlin, originally from karlsruhe.
+          I live in Berlin, originally from Karlsruhe.
         </p>
       </div>
     </section>
