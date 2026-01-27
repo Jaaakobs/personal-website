@@ -10,18 +10,22 @@ export default function CVPage() {
   const downloadPDF = async () => {
     if (!cvRef.current) return;
     
-    // Dynamic import for client-side only
-    const html2pdf = (await import("html2pdf.js")).default;
-    
-    const opt = {
-      margin: 0,
-      filename: "Jakob_Engelhardt_CV.pdf",
-      image: { type: "jpeg", quality: 0.98 },
-      html2canvas: { scale: 2, useCORS: true },
-      jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
-    };
+    try {
+      // Dynamic import for client-side only
+      const html2pdf = (await import("html2pdf.js")).default;
+      
+      const opt = {
+        margin: 0,
+        filename: "Jakob_Engelhardt_CV.pdf",
+        image: { type: "jpeg", quality: 0.98 },
+        html2canvas: { scale: 2, useCORS: true },
+        jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+      };
 
-    html2pdf().set(opt).from(cvRef.current).save();
+      await html2pdf().set(opt).from(cvRef.current).save();
+    } catch (err) {
+      console.error("Failed to generate PDF:", err);
+    }
   };
 
   const copyPageContent = async () => {
@@ -39,39 +43,43 @@ Product leader with experience building and scaling products from 0 to 1. Proven
 
 ## Experience
 
-### Head of Product at Buena (2024 - present)
+### Head of Product at Buena (Sep 2024 - present)
 Berlin, Germany
 - Leading product development at proptech startup redefining home ownership
 - Contributed to closing $58M Series A from Google Ventures
 - Building and scaling product team and processes
 
-### Co-Founder at neonova (2022 - 2024)
+### Co-Founder at neonova (Nov 2022 - Oct 2024)
 Berlin, Germany
 - Co-founded AI and data solutions consultancy
 - Built data infrastructure and ML products for clients (Buena, FORMEL Skin, Purish)
 - Launched ivie.so, a B2B SaaS for automated user interviews
 - Discontinued to join Buena full-time
 
-### Founding Team at Circle Health (2023)
+### Founding Team at Circle Health (Jan 2023 - Sep 2023)
 Berlin, Germany
 - Built MVP for functional medicine clinic from scratch
 - Set up first practice and patient experience
 - Company now operates two practices in Berlin and Munich
 
-### Product Lead at FORMEL Skin (2020 - 2022)
+### Product Lead at FORMEL Skin (Sep 2020 - Dec 2022)
 Berlin, Germany
-Career progression: Product Manager → Senior Product Analyst → Product Lead
 - Joined as first employee pre-seed, built product department from scratch
 - Contributed to biggest Series A in European healthcare at the time
 - Scaled from handful of customers to 20,000+ returning patients, €30M+ ARR
 - Led 5-person product team (PMs, designers, engineers)
 - Company acquired by MANUAL in December 2025 (2M+ treatments)
 
-### Co-Founder at Medi-Match (2018 - 2023)
+### Co-Founder at Medi-Match (Jun 2018 - Aug 2023)
 Karlsruhe, Germany
 - Built algorithm to predict medical school admission chances
 - Helped 10,000+ prospective students with admission planning
 - Acquired by nc-rechner in 2023
+
+### Risk & Assurance: Artificial Intelligence Intern at PwC (Feb 2019 - Jun 2019)
+Munich, Germany
+- Supported AI risk assessment and assurance projects
+- Conducted research on ethical AI frameworks for business applications
 
 ## Education
 
@@ -90,11 +98,10 @@ Rotterdam, Netherlands
 ## Skills
 - Product Strategy & Roadmapping
 - 0-to-1 Product Development
-- Data Analytics & BI (BigQuery, DBT)
+- Data Analytics & BI
 - Machine Learning & AI Applications
 - User Research & Customer Discovery
 - Team Leadership & Hiring
-- Agile / Scrum Methodologies
 - Figma, SQL, Python
 
 ## Additional
@@ -111,7 +118,7 @@ Rotterdam, Netherlands
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 py-8 print:py-0 print:bg-white">
+    <div className="min-h-screen bg-[#f3f4f6] py-8 print:py-0 print:bg-white">
       {/* Action buttons - hidden when printing */}
       <div className="fixed top-4 right-4 print:hidden flex gap-2 z-50">
         <button
@@ -160,7 +167,7 @@ Rotterdam, Netherlands
           <div className="w-[35%] bg-[#f5f5f5] p-6">
             {/* Photo */}
             <div className="mb-6">
-              <div className="w-32 h-32 mx-auto rounded-lg overflow-hidden bg-gray-200">
+              <div className="w-32 h-32 mx-auto rounded-lg overflow-hidden bg-[#e5e7eb]">
                 <Image
                   src="/profile_picture/Jakob Engelhardt.png"
                   alt="Jakob Engelhardt"
@@ -177,7 +184,7 @@ Rotterdam, Netherlands
               <h2 className="text-sm font-bold uppercase tracking-wider mb-3 pb-1 border-b-2 border-[#d4a017]">
                 Profile
               </h2>
-              <p className="text-xs leading-relaxed text-gray-700">
+              <p className="text-xs leading-relaxed text-[#374151]">
                 Product leader with experience building and scaling products from 0 to 1. 
                 Proven track record in co-founding startups and leading product teams at 
                 high-growth companies. Passionate about the intersection of AI and health, 
@@ -193,12 +200,12 @@ Rotterdam, Netherlands
               
               <div className="mb-4">
                 <h3 className="text-xs font-bold">MSc Business Analytics</h3>
-                <p className="text-xs text-gray-600">ESCP Business School</p>
-                <div className="flex justify-between text-xs text-gray-500 mt-1">
+                <p className="text-xs text-[#4b5563]">ESCP Business School</p>
+                <div className="flex justify-between text-xs text-[#6b7280] mt-1">
                   <span>2019 - 2021</span>
                   <span>Paris, France</span>
                 </div>
-                <ul className="text-xs text-gray-700 mt-2 space-y-1">
+                <ul className="text-xs text-[#374151] mt-2 space-y-1">
                   <li>• Graduated with distinction (18.54/20)</li>
                   <li>• Ranked #4 in QS World Rankings</li>
                   <li>• Thesis: Brand Authenticity Analysis via Text Mining</li>
@@ -207,12 +214,12 @@ Rotterdam, Netherlands
 
               <div className="mb-4">
                 <h3 className="text-xs font-bold">BBA International Business</h3>
-                <p className="text-xs text-gray-600">Rotterdam Business School</p>
-                <div className="flex justify-between text-xs text-gray-500 mt-1">
+                <p className="text-xs text-[#4b5563]">Rotterdam Business School</p>
+                <div className="flex justify-between text-xs text-[#6b7280] mt-1">
                   <span>2015 - 2019</span>
                   <span>Rotterdam, NL</span>
                 </div>
-                <ul className="text-xs text-gray-700 mt-2 space-y-1">
+                <ul className="text-xs text-[#374151] mt-2 space-y-1">
                   <li>• Graduated cum laude (8.01/10)</li>
                   <li>• Honours Programme</li>
                   <li>• Thesis: Ethical AI in Business</li>
@@ -225,14 +232,13 @@ Rotterdam, Netherlands
               <h2 className="text-sm font-bold uppercase tracking-wider mb-3 pb-1 border-b-2 border-[#d4a017]">
                 Skills
               </h2>
-              <ul className="text-xs text-gray-700 space-y-1">
+              <ul className="text-xs text-[#374151] space-y-1">
                 <li>• Product Strategy & Roadmapping</li>
                 <li>• 0-to-1 Product Development</li>
-                <li>• Data Analytics & BI (BigQuery, DBT)</li>
+                <li>• Data Analytics & BI</li>
                 <li>• Machine Learning & AI Applications</li>
                 <li>• User Research & Customer Discovery</li>
                 <li>• Team Leadership & Hiring</li>
-                <li>• Agile / Scrum Methodologies</li>
                 <li>• Figma, SQL, Python</li>
               </ul>
             </section>
@@ -242,7 +248,7 @@ Rotterdam, Netherlands
               <h2 className="text-sm font-bold uppercase tracking-wider mb-3 pb-1 border-b-2 border-[#d4a017]">
                 Contact
               </h2>
-              <div className="text-xs text-gray-700 space-y-1">
+              <div className="text-xs text-[#374151] space-y-1">
                 <p>engelhardt.jak@gmail.com</p>
                 <p>linkedin.com/in/jakob-engelhardt</p>
                 <p>x.com/jaaakobs</p>
@@ -255,10 +261,10 @@ Rotterdam, Netherlands
           <div className="w-[65%] p-6">
             {/* Header */}
             <header className="mb-6">
-              <h1 className="text-2xl font-bold text-gray-900 uppercase tracking-wide">
+              <h1 className="text-2xl font-bold text-[#111827] uppercase tracking-wide">
                 Jakob Engelhardt
               </h1>
-              <p className="text-sm text-gray-600 tracking-wider mt-1">
+              <p className="text-sm text-[#4b5563] tracking-wider mt-1">
                 Product Management & AI Strategy
               </p>
             </header>
@@ -270,17 +276,17 @@ Rotterdam, Netherlands
               </h2>
 
               {/* Buena */}
-              <div className="mb-5 relative pl-4 border-l-2 border-gray-200">
+              <div className="mb-5 relative pl-4 border-l-2 border-[#e5e7eb]">
                 <div className="absolute -left-[5px] top-0 w-2 h-2 rounded-full bg-[#d4a017]" />
                 <div className="flex justify-between items-start">
                   <div>
                     <h3 className="text-xs font-bold">Buena</h3>
-                    <p className="text-xs text-gray-600">Head of Product</p>
+                    <p className="text-xs text-[#4b5563]">Head of Product</p>
                   </div>
-                  <span className="text-xs text-gray-500">2024 - present</span>
+                  <span className="text-xs text-[#6b7280]">Sep 2024 - present</span>
                 </div>
-                <p className="text-xs text-gray-500 mt-1">Berlin, Germany</p>
-                <ul className="text-xs text-gray-700 mt-2 space-y-1">
+                <p className="text-xs text-[#6b7280] mt-1">Berlin, Germany</p>
+                <ul className="text-xs text-[#374151] mt-2 space-y-1">
                   <li>• Leading product development at proptech startup redefining home ownership</li>
                   <li>• Contributed to closing $58M Series A from Google Ventures</li>
                   <li>• Building and scaling product team and processes</li>
@@ -288,17 +294,17 @@ Rotterdam, Netherlands
               </div>
 
               {/* neonova */}
-              <div className="mb-5 relative pl-4 border-l-2 border-gray-200">
+              <div className="mb-5 relative pl-4 border-l-2 border-[#e5e7eb]">
                 <div className="absolute -left-[5px] top-0 w-2 h-2 rounded-full bg-[#d4a017]" />
                 <div className="flex justify-between items-start">
                   <div>
                     <h3 className="text-xs font-bold">neonova</h3>
-                    <p className="text-xs text-gray-600">Co-Founder</p>
+                    <p className="text-xs text-[#4b5563]">Co-Founder</p>
                   </div>
-                  <span className="text-xs text-gray-500">2022 - 2024</span>
+                  <span className="text-xs text-[#6b7280]">Nov 2022 - Oct 2024</span>
                 </div>
-                <p className="text-xs text-gray-500 mt-1">Berlin, Germany</p>
-                <ul className="text-xs text-gray-700 mt-2 space-y-1">
+                <p className="text-xs text-[#6b7280] mt-1">Berlin, Germany</p>
+                <ul className="text-xs text-[#374151] mt-2 space-y-1">
                   <li>• Co-founded AI and data solutions consultancy</li>
                   <li>• Built data infrastructure and ML products for clients (Buena, FORMEL Skin, Purish)</li>
                   <li>• Launched ivie.so, a B2B SaaS for automated user interviews</li>
@@ -307,17 +313,17 @@ Rotterdam, Netherlands
               </div>
 
               {/* Circle Health */}
-              <div className="mb-5 relative pl-4 border-l-2 border-gray-200">
+              <div className="mb-5 relative pl-4 border-l-2 border-[#e5e7eb]">
                 <div className="absolute -left-[5px] top-0 w-2 h-2 rounded-full bg-[#d4a017]" />
                 <div className="flex justify-between items-start">
                   <div>
                     <h3 className="text-xs font-bold">Circle Health</h3>
-                    <p className="text-xs text-gray-600">Founding Team</p>
+                    <p className="text-xs text-[#4b5563]">Founding Team</p>
                   </div>
-                  <span className="text-xs text-gray-500">2023</span>
+                  <span className="text-xs text-[#6b7280]">Jan 2023 - Sep 2023</span>
                 </div>
-                <p className="text-xs text-gray-500 mt-1">Berlin, Germany</p>
-                <ul className="text-xs text-gray-700 mt-2 space-y-1">
+                <p className="text-xs text-[#6b7280] mt-1">Berlin, Germany</p>
+                <ul className="text-xs text-[#374151] mt-2 space-y-1">
                   <li>• Built MVP for functional medicine clinic from scratch</li>
                   <li>• Set up first practice and patient experience</li>
                   <li>• Company now operates two practices in Berlin and Munich</li>
@@ -325,17 +331,17 @@ Rotterdam, Netherlands
               </div>
 
               {/* FORMEL Skin */}
-              <div className="mb-5 relative pl-4 border-l-2 border-gray-200">
+              <div className="mb-5 relative pl-4 border-l-2 border-[#e5e7eb]">
                 <div className="absolute -left-[5px] top-0 w-2 h-2 rounded-full bg-[#d4a017]" />
                 <div className="flex justify-between items-start">
                   <div>
                     <h3 className="text-xs font-bold">FORMEL Skin</h3>
-                    <p className="text-xs text-gray-600">Product Lead → Senior Product Analyst → Product Manager</p>
+                    <p className="text-xs text-[#4b5563]">Product Lead</p>
                   </div>
-                  <span className="text-xs text-gray-500">2020 - 2022</span>
+                  <span className="text-xs text-[#6b7280]">Sep 2020 - Dec 2022</span>
                 </div>
-                <p className="text-xs text-gray-500 mt-1">Berlin, Germany</p>
-                <ul className="text-xs text-gray-700 mt-2 space-y-1">
+                <p className="text-xs text-[#6b7280] mt-1">Berlin, Germany</p>
+                <ul className="text-xs text-[#374151] mt-2 space-y-1">
                   <li>• Joined as first employee pre-seed, built product department from scratch</li>
                   <li>• Contributed to biggest Series A in European healthcare at the time</li>
                   <li>• Scaled from handful of customers to 20,000+ returning patients, €30M+ ARR</li>
@@ -345,20 +351,37 @@ Rotterdam, Netherlands
               </div>
 
               {/* Medi-Match */}
-              <div className="mb-5 relative pl-4 border-l-2 border-gray-200">
+              <div className="mb-5 relative pl-4 border-l-2 border-[#e5e7eb]">
                 <div className="absolute -left-[5px] top-0 w-2 h-2 rounded-full bg-[#d4a017]" />
                 <div className="flex justify-between items-start">
                   <div>
                     <h3 className="text-xs font-bold">Medi-Match</h3>
-                    <p className="text-xs text-gray-600">Co-Founder</p>
+                    <p className="text-xs text-[#4b5563]">Co-Founder</p>
                   </div>
-                  <span className="text-xs text-gray-500">2018 - 2023</span>
+                  <span className="text-xs text-[#6b7280]">Jun 2018 - Aug 2023</span>
                 </div>
-                <p className="text-xs text-gray-500 mt-1">Karlsruhe, Germany</p>
-                <ul className="text-xs text-gray-700 mt-2 space-y-1">
+                <p className="text-xs text-[#6b7280] mt-1">Karlsruhe, Germany</p>
+                <ul className="text-xs text-[#374151] mt-2 space-y-1">
                   <li>• Built algorithm to predict medical school admission chances</li>
                   <li>• Helped 10,000+ prospective students with admission planning</li>
                   <li>• Acquired by nc-rechner in 2023</li>
+                </ul>
+              </div>
+
+              {/* PwC */}
+              <div className="mb-5 relative pl-4 border-l-2 border-[#e5e7eb]">
+                <div className="absolute -left-[5px] top-0 w-2 h-2 rounded-full bg-[#d4a017]" />
+                <div className="flex justify-between items-start">
+                  <div>
+                    <h3 className="text-xs font-bold">PwC</h3>
+                    <p className="text-xs text-[#4b5563]">Risk & Assurance: Artificial Intelligence Intern</p>
+                  </div>
+                  <span className="text-xs text-[#6b7280]">Feb 2019 - Jun 2019</span>
+                </div>
+                <p className="text-xs text-[#6b7280] mt-1">Munich, Germany</p>
+                <ul className="text-xs text-[#374151] mt-2 space-y-1">
+                  <li>• Supported AI risk assessment and assurance projects</li>
+                  <li>• Conducted research on ethical AI frameworks for business applications</li>
                 </ul>
               </div>
             </section>
