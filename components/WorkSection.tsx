@@ -17,7 +17,7 @@ interface WorkItem {
 const workHistory: WorkItem[] = [
   {
     company: "Buena",
-    role: "Head of Product",
+    role: "Product",
     period: "2024 - present",
     logo: "/logos/buena_logo.jpeg",
     location: "Berlin, Germany",

@@ -43,7 +43,7 @@ Product leader with experience building and scaling products from 0 to 1. Proven
 
 ## Experience
 
-### Head of Product at Buena (Sep 2024 - present)
+### Product at Buena (Sep 2024 - present)
 Berlin, Germany
 - Leading product development at proptech startup redefining home ownership
 - Contributed to closing $58M Series A from Google Ventures
@@ -281,7 +281,7 @@ Rotterdam, Netherlands
                 <div className="flex justify-between items-start">
                   <div>
                     <h3 className="text-xs font-bold">Buena</h3>
-                    <p className="text-xs text-[#4b5563]">Head of Product</p>
+                    <p className="text-xs text-[#4b5563]">Product</p>
                   </div>
                   <span className="text-xs text-[#6b7280]">Sep 2024 - present</span>
                 </div>
